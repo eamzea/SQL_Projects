@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  postgresDB:
+    image: postgres
+    container_name: postgres-template-db
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=dbName
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+
+  pgAdminDB:
+    image: dpage/pgadmin4
+    container_name: pgadmin-template-db
+    restart: always
+    depends_on:
+      - postgresDB
+    ports:
+      - 8080:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=email
+      - PGADMIN_DEFAULT_PASSWORD=password
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin
+      - ./pgadmin:/certs/server.cert
+      - ./pgadmin:/certs/server.key
+      - ./pgadmin:/pgadmin4/servers.json

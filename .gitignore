@@ -1,0 +1,18 @@
+# Dependency directory
+node_modules
+
+# Debug log from npm
+*.log
+
+.env
+.DS_Store
+dist/
+coverage/
+logs/
+mongo-*/
+postgres*/
+pgadmin*/
+docker-compose.yml
+
+# Local Netlify folder
+.netlify
