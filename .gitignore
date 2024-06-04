@@ -12,7 +12,7 @@ logs/
 mongo-*/
 postgres*/
 pgadmin*/
-docker-compose.yml
+docker-compose*.yml
 
 # Local Netlify folder
 .netlify
